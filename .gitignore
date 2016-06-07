@@ -234,3 +234,7 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+*.DS_Store
+jspm_packages/
+typings/
+**/wwwroot/dist/
