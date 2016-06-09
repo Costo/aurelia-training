@@ -1,0 +1,21 @@
+﻿<template>
+    <require from="./comment-editor" ></require>
+    <h1 textContent.bind="post.title"></h1>
+    <article>
+        <p textContent.bind="post.body"></p>
+    </article>
+    <section if.bind="post" class="au-stagger">
+        <h3>What do you think?</h3>
+        <comment-editor save.delegate="saveComment($event)" post-id.bind="post.id"></comment-editor>
+        <h3>Comments</h3>
+        <div repeat.for="comment of comments" class="au-animate">
+            <blockquote>
+                <p textContent.bind="comment.body"></p>
+                <footer>
+                    ${comment.name}&nbsp;(${comment.email})
+                </footer>
+            </blockquote>
+        </div>
+
+    </section>
+</template>

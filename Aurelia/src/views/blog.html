@@ -1,9 +1,16 @@
 <template>
+    <require from="converters/take"></require>
     <h1>My blog</h1>
-    <article repeat.for="post of posts">
-        <h2>${post.title}</h2>
-        <p>
-            ${post.body}
-        </p>
-    </article>
+    <div class="au-stagger">
+        <article repeat.for="post of posts | take:5" class="au-animate">
+            <h2>
+                <a route-href="route: blog-post;
+               params.bind: {id: post.id}">${post.title}</a>
+            </h2>
+            <p>
+                ${post.body}
+            </p>
+
+        </article>
+    </div>
 </template>

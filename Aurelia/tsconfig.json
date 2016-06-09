@@ -8,7 +8,8 @@
     "declaration": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "noImplicitAny": true
   },
   "exclude": [
     "node_modules"

@@ -11,6 +11,7 @@
     "dependencies": {
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0-beta.1.2.1",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1.2.1",
+      "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0-beta.1.2.1",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-beta.1.2.5",
       "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.2.5",
       "aurelia-history-browser": "npm:aurelia-history-browser@^1.0.0-beta.1.2.1",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "browser-sync": "^2.12.10",
     "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.13.5",
     "jspm": "^0.16.36",
     "typescript": "^1.8.10",

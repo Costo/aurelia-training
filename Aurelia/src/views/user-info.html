@@ -1,3 +1,5 @@
-﻿<template>
-    Hello, my name is ${name}
+﻿<template show.bind="user">
+    Hello, my name is ${name}. Contact me at <a href.bind="mailto">${user.email}</a>.
+
+    I work at ${user.company.name} where I ${user.company.bs}.
 </template>

@@ -4,7 +4,12 @@ import {User} from 'services/api'
 export class UserInfoCustomElement {
 
     @bindable user: User;
+    element: Element;
 
+    constructor(element: Element) {
+        this.element = element;
+
+    }
 
     get name(): string {
 
@@ -15,5 +20,10 @@ export class UserInfoCustomElement {
         fullname[1] = `"${this.user.username}"`;
 
         return fullname.join(" ");
+    }
+
+    get mailto(): string {
+        if (!this.user) return '#';
+        return 'mailto:' + this.user.email;
     }
 }
