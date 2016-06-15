@@ -23,3 +23,7 @@
     100% { opacity: 1; }
 }
 
+.thumbnail .caption p {
+
+    height: 60px;
+}

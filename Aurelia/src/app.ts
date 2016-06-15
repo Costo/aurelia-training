@@ -1,15 +1,15 @@
 import 'core-js';
 import {autoinject, computedFrom} from 'aurelia-framework';
 import {RouterConfiguration, Router} from 'aurelia-router';
-import {ApiService, User, userId} from 'services/api';
-
+import {ApiService, User} from 'services/api';
+import {Configuration} from 'configuration';
 @autoinject
 export class App {
   
   user: User;
-  
-  constructor(api: ApiService) {
-    api.getUser(userId).then(user => this.user = user)
+
+  constructor(api: ApiService, config: Configuration) {
+      api.getUser(config.userId).then(user => this.user = user)
     
   }
   
@@ -27,6 +27,7 @@ export class App {
       { route: ["", "blog"], name: "blog", moduleId: "views/blog", nav: true },
       { route: ["blog/:id"], name: "blog-post", moduleId: "views/blog-post", nav: true, href: 'blog/0' },
       { route: ["gallery"], name: "gallery", moduleId: "views/gallery", nav: true }
+      { route: ["gallery/:id"], name: "album", moduleId: "views/album", nav: true, href: 'gallery/0' }
     ]);
     
   }

@@ -1,0 +1,12 @@
+﻿<template>
+    <div class="row">
+        <div class="col-md-3" repeat.for="photo of photos">
+            <div class="thumbnail">
+                <img src.bind="photo.thumbnailUrl" />
+                <div class="caption">
+                    <p textContent.bind="photo.title"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
