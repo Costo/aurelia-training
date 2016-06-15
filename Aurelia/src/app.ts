@@ -26,7 +26,7 @@ export class App {
     config.map([
       { route: ["", "blog"], name: "blog", moduleId: "views/blog", nav: true },
       { route: ["blog/:id"], name: "blog-post", moduleId: "views/blog-post", nav: true, href: 'blog/0' },
-      { route: ["gallery"], name: "gallery", moduleId: "views/gallery", nav: true }
+      { route: ["gallery"], name: "gallery", moduleId: "views/gallery", nav: true },
       { route: ["gallery/:id"], name: "album", moduleId: "views/album", nav: true, href: 'gallery/0' }
     ]);
     

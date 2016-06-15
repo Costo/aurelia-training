@@ -9,12 +9,13 @@ var outputRoot = 'wwwroot/dist/';
 var paths = {
     source: appRoot + '**/*.ts',
     dtsSource: [
+      'custom_typings/**/*.d.ts',
       'typings/globals/**/*.d.ts',
       'wwwroot/jspm_packages/**/*.d.ts'
     ],
     html: appRoot + '**/*.html',
-    output: outputRoot,
-}
+    output: outputRoot
+};
 
 
 var tsCompilerConfig = typescript.createProject('tsconfig.json');
