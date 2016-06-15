@@ -6,7 +6,8 @@ import {Configuration} from 'configuration';
 @autoinject
 export class App {
   
-  user: User;
+    user: User;
+    router: Router;
 
   constructor(api: ApiService, config: Configuration) {
       api.getUser(config.userId).then(user => this.user = user)
@@ -17,8 +18,23 @@ export class App {
   get message() {
     if(this.user) {
       return `Welcome to ${this.user.name}'s website !!!!!!!`;
-    }
-    return 'Loading...';
+      }
+      return 'Loading...';
+  }
+
+  get routeName(): string {
+      return this.router
+          && this.router.currentInstruction
+          && this.router.currentInstruction.config.name;
+  }
+
+  isActive(...routes: string[]): string {
+      if (this.router && this.router.currentInstruction) {
+          return routes.includes(this.router.currentInstruction.config.name)
+              ? 'active'
+              : '';
+      }
+      return '';
   }
   
   configureRouter(config: RouterConfiguration, router: Router) {
@@ -29,7 +45,8 @@ export class App {
       { route: ["gallery"], name: "gallery", moduleId: "views/gallery", nav: true },
       { route: ["gallery/:id"], name: "album", moduleId: "views/album", nav: true, href: 'gallery/0' }
     ]);
-    
+
+    this.router = router;
   }
   
   
