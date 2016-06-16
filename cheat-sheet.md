@@ -1,7 +1,7 @@
 # Cheat Sheet
 
-
-## Bootstrap navbar
+## Navigation
+### Bootstrap navbar
 ```html
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -28,7 +28,7 @@
     
 ```
 
-## Router configuration
+### Router configuration
 
 In app.html
 ```html
@@ -53,7 +53,7 @@ configureRouter(config: RouterConfiguration, router: Router) {
 }
 ```
 
-## Navbar routes
+### Navbar routes
 In app.ts
 ```ts
 get routeName(): string {
@@ -367,6 +367,34 @@ In app.html
 
 In app.ts
 ```ts
+import 'core-js';
+import {autoinject, computedFrom} from 'aurelia-framework';
+import {RouterConfiguration, Router} from 'aurelia-router';
+import {ApiService, User} from 'services/api';
+import {Configuration} from 'configuration';
+@autoinject
+export class App {
+  
+    user: User;
+    router: Router;
+
+  constructor(api: ApiService, config: Configuration) {
+      api.getUser(config.userId).then(user => this.user = user)
+    
+  }
+  
+  configureRouter(config: RouterConfiguration, router: Router) {
+    
+    config.map([
+      { route: ["", "blog"], name: "blog", moduleId: "views/blog", nav: true },
+      { route: ["blog/:id"], name: "blog-post", moduleId: "views/blog-post", nav: true, href: 'blog/0' },
+      { route: ["gallery"], name: "gallery", moduleId: "views/gallery", nav: true },
+      { route: ["gallery/:id"], name: "album", moduleId: "views/album", nav: true, href: 'gallery/0' }
+    ]);
+
+    this.router = router;
+  }
+}
 
 ```
 
@@ -553,7 +581,38 @@ export class Album
 }
 ```
 
-## Converter sample
+## Misc
+
+### CSS animations
+In styles.css
+```css
+.au-enter {
+    opacity: 0;
+}
+
+.au-enter-active {
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+
+.au-stagger {
+    -webkit-animation-delay:50ms;
+    animation-delay:50ms;
+}
+
+/* CSS3-Animations */
+@-webkit-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+```
+
+### Converter sample
 ```ts
 export class TakeValueConverter {
     toView(value: any, count: number) {
@@ -565,7 +624,6 @@ export class TakeValueConverter {
 }
 ```
 
-## Misc
 ### TypeScript rest parameters
 ```ts
 class Count {
