@@ -21,10 +21,8 @@ export class BlogPost {
     }
 
     saveComment(evt: CustomEvent) {
-        this.api.saveComment(evt.detail)
-            .then(comment => this.comments.unshift(comment));
-
-        
+        let comment = evt.detail as Comment;
+        this.comments.unshift(comment);
     }
 }
 

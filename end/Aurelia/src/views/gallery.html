@@ -2,7 +2,7 @@
     <h1>My albums</h1>
 
     <div repeat.for="album of albums">
-        <p >
+        <p class="lead">
             <a route-href="route: album; params.bind: {id: album.id}" textContent.bind="album.title"></a>
         </p>
     </div>

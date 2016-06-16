@@ -13,28 +13,11 @@ export class App {
       api.getUser(config.userId).then(user => this.user = user)
     
   }
-  
-  @computedFrom('user')
-  get message() {
-    if(this.user) {
-      return `Welcome to ${this.user.name}'s website !!!!!!!`;
-      }
-      return 'Loading...';
-  }
 
   get routeName(): string {
       return this.router
           && this.router.currentInstruction
           && this.router.currentInstruction.config.name;
-  }
-
-  isActive(...routes: string[]): string {
-      if (this.router && this.router.currentInstruction) {
-          return routes.includes(this.router.currentInstruction.config.name)
-              ? 'active'
-              : '';
-      }
-      return '';
   }
   
   configureRouter(config: RouterConfiguration, router: Router) {

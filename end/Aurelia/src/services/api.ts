@@ -5,8 +5,6 @@ import {autoinject} from 'aurelia-framework';
 import {Configuration} from 'configuration';
 import 'fetch';
 
-interface UserId extends Number { }
-
 @autoinject
 export class ApiService {
 

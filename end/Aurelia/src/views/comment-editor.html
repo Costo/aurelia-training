@@ -10,10 +10,11 @@
         </div>
         <div class="form-group">
             <label for="comment">Your comment</label>
-            <textarea class="form-control" id="comment" value.bind="comment"></textarea>
+            <textarea class="form-control" id="comment" value.bind="comment & debounce:500"></textarea>
+            <p>Character count: ${comment.length}</p>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn au-animate" click.delegate="submit($event)">Submit</button>
+            <button type="submit" class="btn" click.delegate="submit($event)">Submit</button>
         </div>
     </form>
 
